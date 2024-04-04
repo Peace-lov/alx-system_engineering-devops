@@ -1,0 +1,10 @@
+# configure ssh client so that you can connect to a server
+    IdentityFile ~/.ssh/school
+    ForwardAgent no
+    ForwardX11 no
+    ForwardX11Trusted yes
+    PasswordAuthentication no
+    GSSAPIDelegateCredentials no
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
