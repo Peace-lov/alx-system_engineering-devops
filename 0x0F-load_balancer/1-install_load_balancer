@@ -29,7 +29,7 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend peace-lov.tech-frontend
+frontend peace-lov-tech-frontend
    bind *:80
    default_backend peace-lov-tech-backend
 
