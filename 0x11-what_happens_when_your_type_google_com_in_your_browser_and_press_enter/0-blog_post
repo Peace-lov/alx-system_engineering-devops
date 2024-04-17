@@ -1,0 +1,20 @@
+What happens when you type "google.com" in your browser and press enter.
+
+DNP REQUEST
+The browser has the protocol "http" (Hyper Text Transfer Protocol) and Resource "/" (index) information stored in the URL (Uniform Resource Locator). when no protocol or valid domain name is given the browser proceeds to feed the text given in the address box to the browser's default web search engine. Then the browser checks its "preloaded HSTS (HTTP Strict Transport Security)" list. If the website is in the list, the browser sends its request through HTTPS instead of HTTP. The first HTTP request to the website by a user will receive a response requesting that the user only sends HTTPS requests.
+
+The browser then checks if the domain is in it's cache (to see the DNS cache in chrome, go to chrome://net-internals/#dns. This checks if the hostname can be restored by reference in the local hosts file before trying to resolve the hostname through DNS.
+
+TCP/IP
+Once the browser receives the IP address of the destination server, it takes that and gives the port number from the URL (the HTTP protocol defaults to port 80, and HTTPS to port 443), and makes a call to the system library function named "socket" and requests a TCP socket stream. The request is first passed to the Transport layer where  a TCP segment is crafted. This segment is sent to the network layer, which wraps an additional IP header. The IP address of the destination server as well as that of the current machine is inserted to form a packet. At this point the packet is already to be transmitted through either Ethernet, wifi, or cellular data network. You establish a network connection with the server.
+
+FIREWALLS
+Firewall, a protective system sits between the network you're connected to and the Internet.The firewall takes a close look of every packet. Data that passes inspection (i.e the packet must look like those the firewall has seen before) will be sent to its destination by the firewall.
+
+HTTPS/SSL
+HTTPS/SSL tells the browser to encrypt data exchanged with a web page. An SSL or TLS certificate will be installed in your website.
+
+LOAD BALANCER, WEB SERVER, APPLICATION SERVER and DATABASE.
+A load balancer acts as the 'traffic cop' sitting in front of the servers and routing client requests across all servers capable of fulfilling those requests, which maximizes speed and capacity utilization and makes sure that no sever is overworked. Web server is a computer that stores web server software and a website's component files. It connects to the Internet.
+
+In this setup, the load balancer directs incoming requests to the web servers, which then process static content and pass dynamic requests to the application servers. The application servers then connects with the database servers to receive data and generate response that will be sent back.
